@@ -1,0 +1,3 @@
+# declarative-promise
+
+Produce declarative specifications of your promise chains.  Right now this implementation is incredibly trivial.  It doesn't support chaining in any meaningful way, and it only supports the `then` method.  It's just the bare minimum I need to create a proof-of-concept for [redux-fetch](https://github.com/ashaffer/declarative-promise).  Over time, if the concept works out, i'll flesh this out.
