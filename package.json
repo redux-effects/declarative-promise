@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/ashaffer/declarative-promise/issues"
   },
-  "homepage": "https://github.com/ashaffer/declarative-promise"
+  "homepage": "https://github.com/ashaffer/declarative-promise",
+  "dependencies": {}
 }
