@@ -3,7 +3,7 @@
  */
 
 import test from 'tape'
-import DeclarativePromise from '..'
+import DeclarativePromise from '../src'
 
 /**
  * Tests

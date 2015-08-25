@@ -4,7 +4,8 @@
   "description": "Behaves kinda like the es6 Promise api, but it doesn't actually *do* anything.  It just produces a description of what is to be done, by someone else.  At the moment, it's designed to work with the [redux-fetch](https://github.com/ashaffer/redux-fetch) middleware for redux.  However, hopefully it can become something more general over time.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "rm -rf lib && babel src --out-dir lib",
+    "postpublish": "rm -rf lib"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/redux-effects/declarative-promise",
   "dependencies": {},
   "devDependencies": {
+    "babel": "^5.8.21",
     "babel-tape-runner": "^1.2.0",
     "standard": "^5.1.0",
     "tape": "^4.2.0"
