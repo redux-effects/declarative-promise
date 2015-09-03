@@ -3,22 +3,34 @@
  */
 
 class DeclarativePromise {
-  constructor (action) {
+  constructor (action, root) {
     action.meta = action.meta || {}
     action.meta.then = action.meta.then || []
 
     this.action = action
+    this.root = root || this
   }
 
   then (success, failure) {
-    const q = new DeclarativePromise({success, failure})
+    const q = new DeclarativePromise({success, failure}, this.root)
     this.action.meta.then.push(q)
     return q
   }
 
-  toJSON () {
-    this.action.meta.then = this.action.meta.then.map(then => then.toJSON())
-    return this.action
+  toJSON (_recurse) {
+    // Always toJSON starting at the root
+    // of the promise tree
+    if (!_recurse) {
+      return this.root.toJSON(true)
+    }
+
+    return {
+      ...this.action,
+      meta: {
+        ...this.action.meta,
+        then: this.action.meta.then.map(then => then.toJSON(true))
+      }
+    }
   }
 }
 

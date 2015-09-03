@@ -27,7 +27,7 @@
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-tape-runner": "^1.2.0",
-    "standard": "^5.1.0",
+    "standard": "^5.1.1",
     "tape": "^4.2.0"
   }
 }
