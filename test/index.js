@@ -10,18 +10,18 @@ import DeclarativePromise from '../src'
  */
 
 test('should work', ({deepEqual, end}) => {
-  function then () {}
+  function step () {}
   const q = new DeclarativePromise({})
-  q.then(then)
-  deepEqual(q.toJSON(), {meta: {then: [{success: then, failure: undefined, meta: {then: []}}]}})
+  q.step(step)
+  deepEqual(q.toJSON(), {meta: {steps: [{success: step, failure: undefined, meta: {steps: []}}]}})
   end()
 })
 
 test('should return root from toJSON', ({deepEqual, end}) => {
-  function then () {}
+  function step () {}
 
   const q = new DeclarativePromise({})
-  const q2 = q.then(then)
+  const q2 = q.step(step)
 
   deepEqual(q.toJSON(), q2.toJSON())
   end()

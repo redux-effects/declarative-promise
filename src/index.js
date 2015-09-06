@@ -5,15 +5,15 @@
 class DeclarativePromise {
   constructor (action, root) {
     action.meta = action.meta || {}
-    action.meta.then = action.meta.then || []
+    action.meta.steps = action.meta.steps || []
 
     this.action = action
     this.root = root || this
   }
 
-  then (success, failure) {
+  step (success, failure) {
     const q = new DeclarativePromise({success, failure}, this.root)
-    this.action.meta.then.push(q)
+    this.action.meta.steps.push(q)
     return q
   }
 
@@ -28,7 +28,7 @@ class DeclarativePromise {
       ...this.action,
       meta: {
         ...this.action.meta,
-        then: this.action.meta.then.map(then => then.toJSON(true))
+        steps: this.action.meta.steps.map(step => step.toJSON(true))
       }
     }
   }
