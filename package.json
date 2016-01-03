@@ -1,6 +1,6 @@
 {
   "name": "declarative-promise",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Behaves kinda like the es6 Promise api, but it doesn't actually *do* anything.  It just produces a description of what is to be done, by someone else.  At the moment, it's designed to work with the [redux-fetch](https://github.com/ashaffer/redux-fetch) middleware for redux.  However, hopefully it can become something more general over time.",
   "main": "lib/index.js",
   "scripts": {
